@@ -6,6 +6,9 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
+  // maximum allowed input fingers. note: the message in MessageCli is hardcoded
+  private static final int MAX_FINGERS = 5;
+
   private int roundNumber; // the round of the game
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
@@ -19,6 +22,14 @@ public class Game {
     roundNumber += 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(roundNumber));
     MessageCli.ASK_INPUT.printMessage();
+    String input = Utils.scanner.nextLine();
+
+    // Check whether the player's input is valid
+    try {
+      int playerFingers = Integer.parseInt(input);
+    } catch (NumberFormatException e) { // exception if the string is 'not an integer'
+      MessageCli.INVALID_INPUT.printMessage();
+    }
   }
 
   public void endGame() {}
