@@ -12,13 +12,13 @@ public class Game {
 
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
-
     roundNumber = 0;
   }
 
   public void play() {
     roundNumber += 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(roundNumber));
+    MessageCli.ASK_INPUT.printMessage();
   }
 
   public void endGame() {}
