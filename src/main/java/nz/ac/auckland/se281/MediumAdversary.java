@@ -9,8 +9,7 @@ public class MediumAdversary extends Adversary {
   private int adversaryWins;
 
   public MediumAdversary() {
-    super();
-    super.strategy = new RandomStrategy();
+    super(new RandomStrategy());
     this.playerWins = 0;
     this.adversaryWins = 0;
   }

@@ -6,6 +6,10 @@ public abstract class Adversary {
 
   protected Strategy strategy;
 
+  public Adversary(Strategy strategy) {
+    this.strategy = strategy;
+  }
+
   public void updateChoice(Choice choice) {}
 
   public abstract int takeTurn();
