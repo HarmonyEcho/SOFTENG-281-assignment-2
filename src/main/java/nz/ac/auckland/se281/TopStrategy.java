@@ -10,7 +10,6 @@ public class TopStrategy implements Strategy {
 
   @Override
   public int chooseFingers() {
-    System.out.println("TOP COMMENT GOES HERE AAAAAA");
     if (playerEvenCount == playerOddCount) { // if player has no preference, return random number
       return Utils.getRandomNumberRange(0, Game.MAX_FINGERS);
     } else if (playerEvenCount > playerOddCount) { // if the player prefers to make even hands

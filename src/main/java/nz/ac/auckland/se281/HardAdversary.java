@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
-public class MediumAdversary extends Adversary {
+public class HardAdversary extends Adversary {
 
   private TopStrategy topStrategy = new TopStrategy();
   private int numRounds;
 
-  public MediumAdversary() {
+  public HardAdversary() {
     super(new RandomStrategy());
     this.numRounds = 0;
   }

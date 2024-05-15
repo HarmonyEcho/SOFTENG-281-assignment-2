@@ -9,6 +9,8 @@ public class AdversaryFactory {
         return new EasyAdversary();
       case MEDIUM:
         return new MediumAdversary();
+      case HARD:
+        return new HardAdversary();
       default:
         return null;
     }

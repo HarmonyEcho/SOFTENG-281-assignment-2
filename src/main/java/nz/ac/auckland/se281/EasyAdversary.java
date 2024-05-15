@@ -12,5 +12,5 @@ public class EasyAdversary extends Adversary {
   }
 
   @Override
-  public void updateOutcome(boolean adversaryWon) {}
+  public void updateOutcome(boolean adversaryWon, boolean playerWon) {}
 }

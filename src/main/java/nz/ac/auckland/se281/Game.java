@@ -73,7 +73,8 @@ public class Game {
     }
 
     // print the outcome of the round
-    if (totalChoice == oddEvenChoice) { // player wins
+    boolean playerWon = (totalChoice == oddEvenChoice);
+    if (playerWon) { // player wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), playerName);
     } else { // adversary wins
@@ -82,7 +83,7 @@ public class Game {
     }
 
     // update the data for the adversary strategies
-    adversary.updateOutcome(Utils.isEven(playerFingers));
+    adversary.updateOutcome(Utils.isEven(playerFingers), playerWon);
   }
 
   public void endGame() {}

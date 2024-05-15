@@ -14,5 +14,5 @@ public abstract class Adversary {
 
   public abstract int takeTurn();
 
-  public abstract void updateOutcome(boolean adversaryWon);
+  public abstract void updateOutcome(boolean playerEven, boolean playerWon);
 }
