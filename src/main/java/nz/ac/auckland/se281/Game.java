@@ -10,11 +10,13 @@ public class Game {
   private static final int MAX_FINGERS = 5;
 
   private int roundNumber; // the round of the game
+  private String playerName; // player's name
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
     // the first element of options[0]; is the name of the player
-    MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+    playerName = options[0];
+    MessageCli.WELCOME_PLAYER.printMessage(playerName);
     roundNumber = 0;
   }
 
@@ -36,6 +38,7 @@ public class Game {
       MessageCli.INVALID_INPUT.printMessage();
       return;
     }
+    MessageCli.PRINT_INFO_HAND.printMessage(playerName, Integer.toString(playerFingers));
   }
 
   public void endGame() {}
