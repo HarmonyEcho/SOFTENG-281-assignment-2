@@ -2,9 +2,9 @@ package nz.ac.auckland.se281;
 
 public class MediumAdversary extends Adversary {
 
-  Strategy strategy;
-  int playerWins;
-  int adversaryWins;
+  private Strategy strategy;
+  private int playerWins;
+  private int adversaryWins;
 
   public MediumAdversary() {
     super();
