@@ -25,7 +25,7 @@ public class Game {
     roundNumber = 0;
 
     // create a new adversary of the chosen difficulty
-    adversary = AdversaryFactory.MakeAdversary(difficulty);
+    adversary = AdversaryFactory.makeAdversary(difficulty);
     oddEvenChoice = choice;
     adversary.updateChoice(oddEvenChoice);
   }

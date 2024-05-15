@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class AdversaryFactory {
-  public static Adversary MakeAdversary(Difficulty difficulty) {
+  public static Adversary makeAdversary(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
         return new EasyAdversary();
