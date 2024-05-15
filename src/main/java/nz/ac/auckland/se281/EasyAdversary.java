@@ -2,10 +2,11 @@ package nz.ac.auckland.se281;
 
 public class EasyAdversary extends Adversary {
 
-  Strategy strategy = new RandomStrategy();
+  private Strategy strategy;
 
   public EasyAdversary() {
     super();
+    this.strategy = new RandomStrategy();
   }
 
   @Override
