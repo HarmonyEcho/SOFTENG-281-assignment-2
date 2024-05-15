@@ -27,6 +27,7 @@ public class Game {
     // create a new adversary of the chosen difficulty
     adversary = AdversaryFactory.MakeAdversary(difficulty);
     oddEvenChoice = choice;
+    adversary.updateChoice(oddEvenChoice);
   }
 
   public void play() {
@@ -75,12 +76,13 @@ public class Game {
     if (totalChoice == oddEvenChoice) { // player wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), playerName);
-      adversary.updateOutcome(false);
     } else { // adversary wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), ADVERSARY_NAME);
-      adversary.updateOutcome(true);
     }
+
+    // update the data for the adversary strategies
+    adversary.updateOutcome(Utils.isEven(playerFingers));
   }
 
   public void endGame() {}

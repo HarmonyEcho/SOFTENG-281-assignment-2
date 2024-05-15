@@ -23,18 +23,18 @@ public class MediumAdversary extends Adversary {
   }
 
   @Override
-  public void updateOutcome(boolean adversaryWon) {
+  public void updateOutcome(boolean playerEven) {
 
     // Update the win counters inside the top strategy
-    if (adversaryWon) {
-      topStrategy.incrementAdversaryWins();
+    if (playerEven) {
+      topStrategy.incrementPlayerEvenCount();
     } else {
-      topStrategy.incrementPlayerWins();
+      topStrategy.incrementPlayerOddCount();
     }
 
     // increments the counter for number of rounds, and checks whether to switch strategies
     numRounds++;
-    if (numRounds == 4) {
+    if (numRounds == 3) { // start using top strategy from the 4th game; i.e. after the 3rd
       super.strategy = topStrategy;
     }
   }
