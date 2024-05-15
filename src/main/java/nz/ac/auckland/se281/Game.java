@@ -25,10 +25,16 @@ public class Game {
     String input = Utils.scanner.nextLine();
 
     // Check whether the player's input is valid
-    try {
-      int playerFingers = Integer.parseInt(input);
-    } catch (NumberFormatException e) { // exception if the string is 'not an integer'
+    int playerFingers;
+    if (Utils.isInteger(input)) {
+      playerFingers = Integer.parseInt(input);
+      if ((playerFingers < 0) | (playerFingers > MAX_FINGERS)) {
+        MessageCli.INVALID_INPUT.printMessage();
+        return;
+      }
+    } else {
       MessageCli.INVALID_INPUT.printMessage();
+      return;
     }
   }
 
