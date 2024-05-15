@@ -23,20 +23,26 @@ public class Game {
   public void play() {
     roundNumber += 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(roundNumber));
-    MessageCli.ASK_INPUT.printMessage();
-    String input = Utils.scanner.nextLine();
-
-    // Check whether the player's input is valid
     int playerFingers;
-    if (Utils.isInteger(input)) {
-      playerFingers = Integer.parseInt(input);
-      if ((playerFingers < 0) | (playerFingers > MAX_FINGERS)) {
+    while (true) {
+      MessageCli.ASK_INPUT.printMessage();
+      String input = Utils.scanner.nextLine();
+
+      // Check whether the player's input is valid
+      if (Utils.isInteger(input)) { // check whether the input is an integer
+
+        // check whether the input is a valid integer
+        playerFingers = Integer.parseInt(input);
+        if ((playerFingers < 0) | (playerFingers > MAX_FINGERS)) {
+          MessageCli.INVALID_INPUT.printMessage();
+          continue;
+        } else {
+          break; // the input is valid; exit the loop
+        }
+      } else {
         MessageCli.INVALID_INPUT.printMessage();
-        return;
+        continue;
       }
-    } else {
-      MessageCli.INVALID_INPUT.printMessage();
-      return;
     }
     MessageCli.PRINT_INFO_HAND.printMessage(playerName, Integer.toString(playerFingers));
   }
