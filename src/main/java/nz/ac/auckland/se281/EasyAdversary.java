@@ -6,12 +6,12 @@ public class EasyAdversary extends Adversary {
 
   public EasyAdversary() {
     super();
-    this.strategy = new RandomStrategy();
+    super.strategy = new RandomStrategy();
   }
 
   @Override
   public int takeTurn() {
-    return strategy.chooseFingers();
+    return super.strategy.chooseFingers();
   }
 
   @Override
