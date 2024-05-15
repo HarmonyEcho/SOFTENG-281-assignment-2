@@ -4,6 +4,8 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class MediumAdversary extends Adversary {
 
+  private static final int CHANGE_STRATEGY_ROUND = 4;
+
   private TopStrategy topStrategy = new TopStrategy();
   private int numRounds;
 
@@ -34,7 +36,9 @@ public class MediumAdversary extends Adversary {
 
     // increments the counter for number of rounds, and checks whether to switch strategies
     numRounds++;
-    if (numRounds == 3) { // start using top strategy from the 4th game; i.e. after the 3rd
+
+    // start using top strategy from the 4th round; i.e. after the 3rd
+    if (numRounds == CHANGE_STRATEGY_ROUND - 1) {
       super.strategy = topStrategy;
     }
   }
