@@ -5,13 +5,11 @@ import nz.ac.auckland.se281.Main.Choice;
 public class MediumAdversary extends Adversary {
 
   private TopStrategy topStrategy = new TopStrategy();
-  private int playerWins;
-  private int adversaryWins;
+  private int numRounds;
 
   public MediumAdversary() {
     super(new RandomStrategy());
-    this.playerWins = 0;
-    this.adversaryWins = 0;
+    this.numRounds = 0;
   }
 
   @Override
@@ -26,12 +24,17 @@ public class MediumAdversary extends Adversary {
 
   @Override
   public void updateOutcome(boolean adversaryWon) {
+
+    // Update the win counters inside the top strategy
     if (adversaryWon) {
       topStrategy.incrementAdversaryWins();
     } else {
       topStrategy.incrementPlayerWins();
     }
-    if (adversaryWins + playerWins == 4) {
+
+    // increments the counter for number of rounds, and checks whether to switch strategies
+    numRounds++;
+    if (numRounds == 4) {
       super.strategy = topStrategy;
     }
   }
