@@ -7,6 +7,8 @@ public class AdversaryFactory {
     switch (difficulty) {
       case EASY:
         return new EasyAdversary();
+      case MEDIUM:
+        return new MediumAdversary();
       default:
         return null;
     }
