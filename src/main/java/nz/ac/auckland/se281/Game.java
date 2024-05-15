@@ -15,6 +15,7 @@ public class Game {
   private int roundNumber; // the round of the game
   private String playerName; // player's name
   private Adversary adversary;
+  private Choice oddEvenChoice;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
@@ -23,7 +24,9 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
     roundNumber = 0;
 
+    // create a new adversary of the chosen difficulty
     adversary = AdversaryFactory.MakeAdversary(difficulty);
+    oddEvenChoice = choice;
   }
 
   public void play() {
@@ -58,6 +61,24 @@ public class Game {
 
     int adversaryFingers = adversary.takeTurn();
     MessageCli.PRINT_INFO_HAND.printMessage(ADVERSARY_NAME, Integer.toString(adversaryFingers));
+
+    // Check whether the total is even or odd
+    int totalFingers = playerFingers + adversaryFingers;
+    Choice totalChoice;
+    if (Utils.isEven(totalFingers)) {
+      totalChoice = Choice.EVEN;
+    } else {
+      totalChoice = Choice.ODD;
+    }
+
+    // print the outcome of the round
+    if (totalChoice == oddEvenChoice) { // player wins
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage(
+          Integer.toString(totalFingers), totalChoice.name(), playerName);
+    } else { // adversary wins
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage(
+          Integer.toString(totalFingers), totalChoice.name(), ADVERSARY_NAME);
+    }
   }
 
   public void endGame() {}
