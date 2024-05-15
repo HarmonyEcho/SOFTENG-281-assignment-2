@@ -4,6 +4,8 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAdversary extends Adversary {
 
+  private static final int CHANGE_STRATEGY_ROUND = 4;
+
   private TopStrategy topStrategy = new TopStrategy();
   private int numRounds;
 
@@ -34,9 +36,12 @@ public class HardAdversary extends Adversary {
 
     // increments the counter for number of rounds, and checks whether to switch strategies
     numRounds++;
-    if (numRounds == 3) { // start using top strategy from the 4th game; i.e. after the 3rd
+
+    // start using top strategy from the 4th game; i.e. after the 3rd
+    if (numRounds == CHANGE_STRATEGY_ROUND - 1) {
       super.strategy = topStrategy;
-    } else if ((numRounds > 3) & playerWon) { // after the
+    } else if ((numRounds >= CHANGE_STRATEGY_ROUND)
+        & playerWon) { // else if the adversary loses after the 4th round
 
       // swap strategies
       if (super.strategy.getClass() == topStrategy.getClass()) {
