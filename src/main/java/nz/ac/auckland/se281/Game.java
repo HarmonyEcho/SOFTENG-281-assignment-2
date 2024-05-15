@@ -75,9 +75,11 @@ public class Game {
     if (totalChoice == oddEvenChoice) { // player wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), playerName);
+      adversary.updateOutcome(false);
     } else { // adversary wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), ADVERSARY_NAME);
+      adversary.updateOutcome(true);
     }
   }
 

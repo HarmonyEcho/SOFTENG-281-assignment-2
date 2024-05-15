@@ -12,4 +12,7 @@ public class EasyAdversary extends Adversary {
   public int takeTurn() {
     return strategy.chooseFingers();
   }
+
+  @Override
+  public void updateOutcome(boolean adversaryWon) {}
 }
