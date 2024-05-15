@@ -7,7 +7,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   // maximum allowed input fingers. note: the message in MessageCli is hardcoded
-  private static final int MAX_FINGERS = 5;
+  public static final int MAX_FINGERS = 5;
 
   private int roundNumber; // the round of the game
   private String playerName; // player's name
