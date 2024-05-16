@@ -113,6 +113,14 @@ public class Game {
   }
 
   public void endGame() {
+    showStats();
+    if (playerWins == adversaryWins) { // tie
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    } else if (playerWins > adversaryWins) { // player wins
+      MessageCli.PRINT_END_GAME.printMessage(playerName);
+    } else { // adversary wins
+      MessageCli.PRINT_END_GAME.printMessage(ADVERSARY_NAME);
+    }
     gameActive = false;
   }
 
