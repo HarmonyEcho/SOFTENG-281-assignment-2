@@ -112,6 +112,11 @@ public class Game {
     adversary.updateOutcome(Utils.isEven(playerFingers), playerWon);
   }
 
+  /**
+   * Prints the name and number of times won for the player and adversary. Prints a message with the
+   * name of the winner, or prints that a tie has occurred, and sets the state of the game to
+   * inactive.
+   */
   public void endGame() {
     showStats();
     if (playerWins == adversaryWins) { // tie
