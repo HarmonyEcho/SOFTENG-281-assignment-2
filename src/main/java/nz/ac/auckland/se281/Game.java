@@ -12,6 +12,7 @@ public class Game {
   // name of the ai opponent
   public static final String ADVERSARY_NAME = "HAL-9000";
 
+  private boolean gameActive = false; // whether a game is currently active
   private int roundNumber; // the round of the game
   private String playerName; // player's name
   private Adversary adversary;
@@ -34,6 +35,7 @@ public class Game {
     roundNumber = 0;
     playerWins = 0;
     adversaryWins = 0;
+    gameActive = true;
 
     // create a new adversary of the chosen difficulty
     adversary = AdversaryFactory.makeAdversary(difficulty);
@@ -103,13 +105,19 @@ public class Game {
     adversary.updateOutcome(Utils.isEven(playerFingers), playerWon);
   }
 
-  public void endGame() {}
+  public void endGame() {
+    gameActive = false;
+  }
 
   /** Prints the name and number of times won for the player and adversary. */
   public void showStats() {
-    MessageCli.PRINT_PLAYER_WINS.printMessage(
-        playerName, Integer.toString(playerWins), Integer.toString(adversaryWins));
-    MessageCli.PRINT_PLAYER_WINS.printMessage(
-        ADVERSARY_NAME, Integer.toString(adversaryWins), Integer.toString(playerWins));
+    if (gameActive) { // the game is active, print the names and wins of player and adversary
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          playerName, Integer.toString(playerWins), Integer.toString(adversaryWins));
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          ADVERSARY_NAME, Integer.toString(adversaryWins), Integer.toString(playerWins));
+    } else { // otherwise print an error message
+      MessageCli.GAME_NOT_STARTED.printMessage();
+    }
   }
 }
