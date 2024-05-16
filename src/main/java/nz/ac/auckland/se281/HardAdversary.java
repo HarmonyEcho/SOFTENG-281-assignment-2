@@ -9,6 +9,10 @@ public class HardAdversary extends Adversary {
   private TopStrategy topStrategy = new TopStrategy();
   private int numRounds;
 
+  /**
+   * Constructs a HardAdversary instance. HardAdversary instances start games using the random
+   * strategy.
+   */
   public HardAdversary() {
     super(new RandomStrategy());
     this.numRounds = 0;

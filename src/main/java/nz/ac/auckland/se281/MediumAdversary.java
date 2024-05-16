@@ -9,6 +9,10 @@ public class MediumAdversary extends Adversary {
   private TopStrategy topStrategy = new TopStrategy();
   private int numRounds;
 
+  /**
+   * Constructs a MediumAdversary instance. MediumAdversary instances start games using the random
+   * strategy.
+   */
   public MediumAdversary() {
     super(new RandomStrategy());
     this.numRounds = 0;

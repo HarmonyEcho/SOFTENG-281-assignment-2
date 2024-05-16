@@ -6,7 +6,7 @@ public class AdversaryFactory {
 
   /**
    * Creates and returns an adversary of the appropriate Adversary subclass based on the given
-   * difficulty
+   * difficulty.
    *
    * @param difficulty the difficulty of the game
    * @return adversary object corresponding to the given difficulty

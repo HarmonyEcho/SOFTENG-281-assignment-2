@@ -7,7 +7,7 @@ public abstract class Adversary {
   protected Strategy strategy;
 
   /**
-   * Constructs an adversary instance
+   * Constructs an adversary instance.
    *
    * @param strategy strategy to use when playing
    */
@@ -24,7 +24,7 @@ public abstract class Adversary {
   public void updateChoice(Choice choice) {}
 
   /**
-   * Returns the number of fingers that the adversary should put up when playing a round
+   * Returns the number of fingers that the adversary should put up when playing a round.
    *
    * @return number of fingers to put up
    */

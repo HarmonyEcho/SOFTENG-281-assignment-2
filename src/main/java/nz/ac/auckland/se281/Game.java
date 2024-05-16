@@ -39,7 +39,7 @@ public class Game {
 
   /**
    * Starts a new round in a game, taking player inputs, displaying the outcome of the round, and
-   * giving any information necessary for the adversary ai
+   * giving any information necessary for the adversary ai.
    */
   public void play() {
     roundNumber += 1;

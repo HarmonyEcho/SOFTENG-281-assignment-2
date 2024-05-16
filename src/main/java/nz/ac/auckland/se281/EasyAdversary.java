@@ -11,7 +11,7 @@ public class EasyAdversary extends Adversary {
   }
 
   /**
-   * Returns the number of fingers that the adversary should put up when playing a round
+   * Returns the number of fingers that the adversary should put up when playing a round.
    *
    * @return number of fingers to put up
    */
