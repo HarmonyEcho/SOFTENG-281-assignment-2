@@ -14,16 +14,34 @@ public class HardAdversary extends Adversary {
     this.numRounds = 0;
   }
 
+  /**
+   * Updates whether the player needs odd or even totals to win.
+   *
+   * @param choice whether the player needs odd or even totals to win
+   */
   @Override
   public void updateChoice(Choice choice) {
     topStrategy.updateChoice(choice);
   }
 
+  /**
+   * Returns the number of fingers that the adversary should put up when playing a round
+   *
+   * @return number of fingers to put up
+   */
   @Override
   public int takeTurn() {
     return super.strategy.chooseFingers();
   }
 
+  /**
+   * Updates information that HardAdversary needs for various strategies that are used. Will switch
+   * strategies to the top strategy after a certain number of rounds. After this, the strategy will
+   * switch between RandomStrategy and TopStrategy whenever the adversary loses.
+   *
+   * @param playerEven whether the player put up an even number of fingers
+   * @param playerWon whether the player won
+   */
   @Override
   public void updateOutcome(boolean playerEven, boolean playerWon) {
 
