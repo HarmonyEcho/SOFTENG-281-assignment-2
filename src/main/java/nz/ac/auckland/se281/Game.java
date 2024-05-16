@@ -17,6 +17,13 @@ public class Game {
   private Adversary adversary;
   private Choice oddEvenChoice;
 
+  /**
+   * Starts a new game, initialising values needed for a new game.
+   *
+   * @param difficulty the difficulty setting of the game
+   * @param choice whether the player needs even or odd totals to win
+   * @param options other options; currently options[0] is the player's name
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
     // the first element of options[0]; is the name of the player
@@ -30,6 +37,10 @@ public class Game {
     adversary.updateChoice(oddEvenChoice);
   }
 
+  /**
+   * Starts a new round in a game, taking player inputs, displaying the outcome of the round, and
+   * giving any information necessary for the adversary ai
+   */
   public void play() {
     roundNumber += 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(roundNumber));
