@@ -61,15 +61,15 @@ public class HardAdversary extends Adversary {
 
     // start using top strategy from the 4th game; i.e. after the 3rd
     if (numRounds == CHANGE_STRATEGY_ROUND - 1) {
-      super.strategy = topStrategy;
+      super.setStrategy(topStrategy);
     } else if ((numRounds >= CHANGE_STRATEGY_ROUND)
         & playerWon) { // else if the adversary loses after the 4th round
 
       // swap strategies
       if (super.strategy.getClass() == topStrategy.getClass()) {
-        super.strategy = new RandomStrategy();
+        super.setStrategy(new RandomStrategy());
       } else {
-        super.strategy = topStrategy;
+        super.setStrategy(topStrategy);
       }
     }
   }

@@ -61,7 +61,7 @@ public class MediumAdversary extends Adversary {
 
     // start using top strategy from the 4th round; i.e. after the 3rd
     if (numRounds == CHANGE_STRATEGY_ROUND - 1) {
-      super.strategy = topStrategy;
+      super.setStrategy(topStrategy);
     }
   }
 }

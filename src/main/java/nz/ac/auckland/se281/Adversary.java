@@ -12,6 +12,15 @@ public abstract class Adversary {
    * @param strategy strategy to use when playing
    */
   public Adversary(Strategy strategy) {
+    this.setStrategy(strategy);
+  }
+
+  /**
+   * Changes the adversary's strategy to the given strategy.
+   *
+   * @param strategy strategy to switch to
+   */
+  public void setStrategy(Strategy strategy) {
     this.strategy = strategy;
   }
 
