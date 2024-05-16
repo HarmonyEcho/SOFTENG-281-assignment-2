@@ -11,16 +11,6 @@ public class EasyAdversary extends Adversary {
   }
 
   /**
-   * Returns the number of fingers that the adversary should put up when playing a round.
-   *
-   * @return number of fingers to put up
-   */
-  @Override
-  public int takeTurn() {
-    return super.strategy.chooseFingers();
-  }
-
-  /**
    * Updates information that various child classes need for strategies that they use. EasyAdversary
    * does not use this method.
    *

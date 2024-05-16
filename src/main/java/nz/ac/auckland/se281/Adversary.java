@@ -37,7 +37,9 @@ public abstract class Adversary {
    *
    * @return number of fingers to put up
    */
-  public abstract int takeTurn();
+  public int takeTurn() {
+    return this.strategy.chooseFingers();
+  }
 
   /**
    * Updates information that various child classes need for strategies that they use. Information

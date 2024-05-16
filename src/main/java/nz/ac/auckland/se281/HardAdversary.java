@@ -29,16 +29,6 @@ public class HardAdversary extends Adversary {
   }
 
   /**
-   * Returns the number of fingers that the adversary should put up when playing a round.
-   *
-   * @return number of fingers to put up
-   */
-  @Override
-  public int takeTurn() {
-    return super.strategy.chooseFingers();
-  }
-
-  /**
    * Updates information that HardAdversary needs for various strategies that are used. Will switch
    * strategies to the top strategy after a certain number of rounds. After this, the strategy will
    * switch between RandomStrategy and TopStrategy whenever the adversary loses.

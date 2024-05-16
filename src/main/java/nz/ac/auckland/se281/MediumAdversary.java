@@ -29,16 +29,6 @@ public class MediumAdversary extends Adversary {
   }
 
   /**
-   * Returns the number of fingers that the adversary should put up when playing a round.
-   *
-   * @return number of fingers to put up
-   */
-  @Override
-  public int takeTurn() {
-    return super.strategy.chooseFingers();
-  }
-
-  /**
    * Updates information that MediumAdversary needs for strategies are used. Information that
    * changes between rounds should be updated using this method. Will switch strategies to the top
    * strategy after a certain number of rounds.
