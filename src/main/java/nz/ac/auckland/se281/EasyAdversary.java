@@ -9,14 +9,4 @@ public class EasyAdversary extends Adversary {
   public EasyAdversary() {
     super(new RandomStrategy());
   }
-
-  /**
-   * Updates information that various child classes need for strategies that they use. EasyAdversary
-   * does not use this method.
-   *
-   * @param playerEven whether the player put up an even number of fingers; unused for this subclass
-   * @param playerWon whether the player won; unused for this subclass
-   */
-  @Override
-  public void updateOutcome(boolean adversaryWon, boolean playerWon) {}
 }

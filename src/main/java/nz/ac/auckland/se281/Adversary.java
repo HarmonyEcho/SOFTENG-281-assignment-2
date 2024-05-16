@@ -48,5 +48,5 @@ public abstract class Adversary {
    * @param playerEven whether the player put up an even number of fingers
    * @param playerWon whether the player won
    */
-  public abstract void updateOutcome(boolean playerEven, boolean playerWon);
+  public void updateOutcome(boolean playerEven, boolean playerWon) {}
 }
