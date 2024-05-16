@@ -48,6 +48,13 @@ public class Game {
    * giving any information necessary for the adversary ai.
    */
   public void play() {
+
+    // if no game is active, print an error message
+    if (!gameActive) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     roundNumber += 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(roundNumber));
 
