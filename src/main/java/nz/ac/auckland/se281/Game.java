@@ -16,6 +16,8 @@ public class Game {
   private String playerName; // player's name
   private Adversary adversary;
   private Choice oddEvenChoice;
+  private int playerWins;
+  private int adversaryWins;
 
   /**
    * Starts a new game, initialising values needed for a new game.
@@ -30,6 +32,8 @@ public class Game {
     playerName = options[0];
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
     roundNumber = 0;
+    playerWins = 0;
+    adversaryWins = 0;
 
     // create a new adversary of the chosen difficulty
     adversary = AdversaryFactory.makeAdversary(difficulty);
@@ -88,9 +92,11 @@ public class Game {
     if (playerWon) { // player wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), playerName);
+      playerWins++;
     } else { // adversary wins
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(totalFingers), totalChoice.name(), ADVERSARY_NAME);
+      adversaryWins++;
     }
 
     // update the data for the adversary strategies
@@ -99,5 +105,11 @@ public class Game {
 
   public void endGame() {}
 
-  public void showStats() {}
+  /** Prints the name and number of times won for the player and adversary. */
+  public void showStats() {
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        playerName, Integer.toString(playerWins), Integer.toString(adversaryWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        ADVERSARY_NAME, Integer.toString(adversaryWins), Integer.toString(playerWins));
+  }
 }
